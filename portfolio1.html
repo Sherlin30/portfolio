@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sherlin F • Portfolio</title>
+  <meta name="description" content="Modern colorful portfolio of Sherlin F – Fresher, Software Engineering" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0b0b12;
+      --card: #121225;
+      --muted: #a7b0c0;
+      --text: #e8ebf7;
+      --chip: #1a1a33;
+      --ring:#7c89ff;
+      --grad1:#7b3fe4;  /* purple */
+      --grad2:#e73c7e;  /* pink */
+      --grad3:#23a6d5;  /* cyan */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; overflow-x:hidden;}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif; color:var(--text);
+      background: radial-gradient(1200px 800px at 10% -10%, rgba(123,63,228,.25), transparent 60%),
+                  radial-gradient(900px 700px at 110% 10%, rgba(231,60,126,.18), transparent 60%),
+                  radial-gradient(800px 600px at 50% 120%, rgba(35,166,213,.18), transparent 60%),
+                  linear-gradient(180deg,#080810,#0b0b12 35% 65%, #0a0a10);
+      line-height:1.6;
+    }
+    .container{width:min(1100px, 92vw); margin-inline:auto}
+
+    /* NAV */
+    nav{position:sticky; top:0; z-index:50; backdrop-filter: blur(12px); background:rgba(8,8,16,.35); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-wrap{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .brand-badge{width:36px; height:36px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg,var(--grad1),var(--grad2),var(--grad3)); box-shadow:0 10px 24px rgba(124,137,255,.35)}
+    .brand-badge svg{filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+    .nav-links{display:flex; gap:18px}
+    .nav-links a{color:var(--muted); text-decoration:none; font-weight:600; padding:10px 12px; border-radius:10px}
+    .nav-links a:hover{color:var(--text); background:rgba(255,255,255,.06)}
+
+    /* HERO */
+    /* Fix overlap */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* equal split */
+  gap: 24px;
+  padding: 64px 0 34px;
+  align-items: start; /* prevent text from pushing into the other column */
+}
+
+.hero-card {
+  min-width: 0; /* allow text to shrink */
+  word-wrap: break-word; /* stop overflow */
+}
+
+.kv {
+  width: 100%;
+  max-width: 500px; /* prevent overflow */
+  height: auto;
+  aspect-ratio: 4/3;
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+
+/* Prevent right-side overflow globally */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* On small screens stack properly */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  .kv {
+    max-width: 100%;
+  }
+}
+
+    /* SECTION */
+    section{padding:28px 0}
+    .section-title{font-size:1.4rem; font-weight:800; letter-spacing:.2px; margin:6px 0 14px}
+    .tag{display:inline-flex; align-items:center; gap:8px; font-size:.88rem; padding:8px 12px; border-radius:999px; color:#fff; background:linear-gradient(135deg,var(--grad1),var(--grad2),var(--grad3)); box-shadow:0 12px 30px rgba(124,137,255,.33)}
+
+    /* CARDS */
+    .grid{display:grid; gap:16px}
+    .grid-2{grid-template-columns: repeat(2, 1fr)}
+    .grid-3{grid-template-columns: repeat(3, 1fr)}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:18px; box-shadow:0 20px 50px rgba(0,0,0,.35)}
+    .card h3{margin:0 0 6px; font-size:1.05rem}
+    .muted{color:var(--muted)}
+
+    /* SKILLS */
+    .chips{display:flex; flex-wrap:wrap; gap:10px}
+    .chip{background:var(--chip); border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:999px; font-weight:600; font-size:.92rem}
+
+    /* TIMELINE */
+    .timeline{position:relative; padding-left:20px}
+    .timeline::before{content:""; position:absolute; left:7px; top:0; bottom:0; width:2px; background:linear-gradient(var(--grad1),var(--grad2),var(--grad3))}
+    .t-item{position:relative; margin:0 0 14px 0; padding-left:12px}
+    .t-item::before{content:""; position:absolute; left:-1px; top:.45rem; width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,var(--grad1),var(--grad2)); box-shadow:0 0 0 3px rgba(124,137,255,.18)}
+
+    /* CONTACT */
+    form{display:grid; gap:12px}
+    input, textarea{background:#0f0f20; color:var(--text); border:1px solid rgba(255,255,255,.08); padding:12px 14px; border-radius:12px; font:inherit}
+    input:focus, textarea:focus{outline:none; border-color:var(--ring); box-shadow:0 0 0 4px rgba(124,137,255,.18)}
+    .btn{cursor:pointer; background:linear-gradient(135deg,var(--grad1),var(--grad2),var(--grad3)); color:#fff; border:none; padding:12px 16px; border-radius:12px; font-weight:800; letter-spacing:.3px}
+
+    /* FOOTER */
+    footer{padding:24px 0 40px; color:var(--muted); text-align:center}
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr;}
+      .grid-3{grid-template-columns: 1fr}
+      .grid-2{grid-template-columns: 1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="container nav-wrap">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" stroke="white" stroke-width="1.5"/>
+            <path d="M12 7l4 2.3V15l-4 2.3L8 15V9.3L12 7z" fill="white"/>
+          </svg>
+        </div>
+        <span>SHERLIN F</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container hero">
+    <div class="hero-card">
+      <p class="tag" style="margin:0 0 14px 0">Fresher • Software Engineering</p>
+      <h1 class="headline">Hi, I’m <span class="accent">Sherlin</span> — a motivated and hardworking fresher eager to learn, build, and contribute to dynamic teams.</h1>
+      <p class="lead">I enjoy crafting clean UIs with HTML/CSS and solving problems with Java. I’m currently seeking an opportunity to grow in a professional environment and level up my skills.</p>
+      <div style="display:flex; gap:10px; margin-top:16px; flex-wrap:wrap">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn" href="mailto:sherlinf2005@gmail.com">Hire Me</a>
+        <a class="btn" href="SherlinF1.resume-1.pdf" download>Download Resume</a>
+      </div>
+      <div style="display:flex; gap:14px; margin-top:18px; color:var(--muted); font-weight:700; flex-wrap:wrap">
+        <span>☎ 6374540849</span>
+        <span>✉ sherlinf2005@gmail.com</span>
+        <span>📍 Erode</span>
+      </div>
+    </div>
+    <div class="kv card">
+  <img src="sherlin.jpeg.jpeg" alt="Sherlin F" style="width:100%; height:auto; border-radius:18px; object-fit:cover;">
+</div>
+
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <h2 class="section-title">About</h2>
+    <p class="muted">I’m a Computer Science & Engineering student passionate about front‑end development and problem solving. I love building accessible, responsive interfaces and learning by doing. Below are some of my favorite technologies and recent work.</p>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="container">
+    <h2 class="section-title">Skills</h2>
+    <div class="card">
+      <h3>Technical</h3>
+      <div class="chips" style="margin-top:8px">
+        <span class="chip">Java</span>
+        <span class="chip">HTML</span>
+        <span class="chip">CSS</span>
+        <span class="chip">Bootstrap</span>
+        <span class="chip">Excel</span>
+      </div>
+      <h3 style="margin-top:14px">Soft Skills</h3>
+      <div class="chips" style="margin-top:8px">
+        <span class="chip">Communication</span>
+        <span class="chip">Teamwork</span>
+        <span class="chip">Problem Solving</span>
+        <span class="chip">Time Management</span>
+        <span class="chip">Leadership</span>
+      </div>
+      <h3 style="margin-top:14px">Certificates</h3>
+      <ul class="muted" style="margin-top:6px; padding-left:18px">
+        <li>NPTEL – Introduction to Internet of Things</li>
+        <li>HackerRank – Java, JavaScript, CSS, SQL</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="container">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid grid-2">
+      <article class="card">
+        <h3>Fake News Slayer</h3>
+        <p class="muted">Detects and flags misleading or false information online.</p>
+        <div class="chips" style="margin-top:8px"><span class="chip">JavaScript</span><span class="chip">API</span></div>
+      </article>
+      <article class="card">
+        <h3>Hydro Plant</h3>
+        <p class="muted">Generates electricity using the flow of water.</p>
+        <div class="chips" style="margin-top:8px"><span class="chip">IoT</span><span class="chip">Sensors</span></div>
+      </article>
+      <article class="card">
+        <h3>Disease Detection in Pets</h3>
+        <p class="muted">Identifies pet illnesses using symptoms or images.</p>
+        <div class="chips" style="margin-top:8px"><span class="chip">ML (concept)</span><span class="chip">Python</span></div>
+      </article>
+      <article class="card">
+        <h3>Food Waste Reduction System</h3>
+        <p class="muted">Minimizes food waste via tracking and smart suggestions.</p>
+        <div class="chips" style="margin-top:8px"><span class="chip">Web</span><span class="chip">UX</span></div>
+      </article>
+      <article class="card">
+        <h3>Ice Cream Website</h3>
+        <p class="muted">Showcases flavors, recipes, and outlets.</p>
+        <div class="chips" style="margin-top:8px"><span class="chip">HTML</span><span class="chip">CSS</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="container">
+    <h2 class="section-title">Education</h2>
+    <div class="card timeline">
+      <div class="t-item">
+        <h3>B.E. Computer Science & Engineering <span class="muted">— Nandha College of Technology</span></h3>
+        <p class="muted">2022 – 2026 • CGPA 8.4</p>
+      </div>
+      <div class="t-item">
+        <h3>HSc <span class="muted">— Grace Matriculation Higher Secondary School</span></h3>
+        <p class="muted">2021 – 2022 • 80.5%</p>
+      </div>
+      <div class="t-item">
+        <h3>SSLC <span class="muted">— Grace Matriculation Higher Secondary School</span></h3>
+        <p class="muted">2019 – 2020 • 90.8%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERNSHIP -->
+  <section class="container">
+    <h2 class="section-title">Internship</h2>
+    <div class="card">
+      <p><strong>Front-End Development Intern</strong> — LeadPro Infotech, Coimbatore <span class="muted">(15 days)</span></p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <form onsubmit="return fakeSubmit(event)">
+          <input type="text" placeholder="Your name" required>
+          <input type="email" placeholder="Your email" required>
+          <textarea rows="5" placeholder="Your message"></textarea>
+          <button class
